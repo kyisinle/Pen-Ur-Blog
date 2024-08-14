@@ -823,3 +823,35 @@ input, textarea, select {
 
 }
 
+.prev_next_btn {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .contact-info {
+    margin-bottom: 50px;
+    align-items: center;
+    height: 70vh;
+    display: grid;
+    place-content: center;
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: #cfcfff;
+    text-decoration: none;
+}
+
+
