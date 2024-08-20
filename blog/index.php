@@ -9,8 +9,8 @@ include 'partials/header.php';
                     <img src="./images/blog1.jpg">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
-                    <h2 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perferendis molestiae numquam voluptatem quae non. Aut praesentium mollitia minima, sint consectetur libero exercitationem.</a></h2>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
+                    <h2 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed perferendis molestiae numquam voluptatem quae non. Aut praesentium mollitia minima, sint consectetur libero exercitationem.</a></h2>
                 <p class="post__body">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque possimus distinctio cum a quas quidem omnis iste quae deserunt, optio ipsam impedit ex quam ea consequuntur neque amet harum odit.
                 </p>
@@ -33,8 +33,8 @@ include 'partials/header.php';
                     <img src="./images/blog2.jpg">
                 </div>
                 <div class="post__info">
-                    <a href="category-posts.html" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Ethic ရှိခြင်း၏ သဘော</a></h3>
+                    <a href="category-posts.php" class="category__button">Wild Life</a>
+                    <h3 class="post__title"><a href="post.php">Ethic ရှိခြင်း၏ သဘော</a></h3>
                     <p class="post__body">
                         ဒဿနိကဗေဒ၏ အဓိက ကိုင်းခွဲကဏ္ဍ ၄ခုအနက် တခု ဖြစ်သော[၁] အကောင်း-အဆိုး ဗေဒ (သို) စရိယဗေဒ (သို) လူ့ကျင့်ဝတ်ဗေဒ (အင်္ဂလိပ်: ethics or moral philosophy) ဆိုသည်မှာ "ဖြောင့်မှန်မည် ဆိုရလောက်သော စိတ်ထား (စာရိတ္တ) နှင့် ကောင်းမှုဆန်မည်၊ ဆိုးမှုဆန်မည် ဆိုရလောက်သော လုပ်ရပ် (ကံ) တို၏ သဘောသဘာတို ဟူသည်ကား မည်သိုဖြစ်မည်နည်းတိုကို ဆင်ခြင် ရှာဖွေ့ သုံးသပ်သမျှသော" တွေးခေါ်ဆန်းစစ်မှု အမျိုးမျိုးကို ဆိုလိုသည်။
                     </p>
@@ -56,7 +56,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>
@@ -77,7 +77,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>
@@ -98,7 +98,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>
@@ -119,7 +119,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>
@@ -140,7 +140,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>
@@ -161,7 +161,7 @@ include 'partials/header.php';
                 </div>
                 <div class="post__info">
                     <a href="" class="category__button">Wild Life</a>
-                    <h3 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
+                    <h3 class="post__title"><a href="post.php">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore eum, magnam repellendus similique molestias ipsum vel culpa placeat eaque ex tempore. Placeat a est vel blanditiis inventore natus pariatur amet.</a></h3>
                     <p class="post__body">
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed! Laborum, neque harum aut corporis mollitia obcaecati ipsum cupiditate ad aliquam saepe voluptatum officiis voluptate nesciunt consequuntur iste! Debitis, incidunt!
                     </p>

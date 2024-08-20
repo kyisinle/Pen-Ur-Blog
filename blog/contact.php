@@ -2,11 +2,11 @@
 include 'partials/header.php';
 ?>
 
-
-<section class="empty__page">
-
-    <h1>Contact Page</h1>
-
+<section class="contact-info">
+    <h1>Contact Us</h1>
+    <p>Email: <a href="kyisinlei14@gmail.com">info@penurblog.com</a></p>
+    <p>Phone: <a href="tel:+959254720389">+95 9254720389</a></p>
+    <p>Address: University Of Information Technology, Yangon</p>
 </section>
 
 <?php
