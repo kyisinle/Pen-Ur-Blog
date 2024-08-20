@@ -37,9 +37,10 @@
 
 .input-group input,
 .input-group textarea {
+    background-color: #0f0f3e;
     width: 100%;
     padding: 10px;
-    border: 1px solid #008080;
+    border: 1px solid #0f0f3e;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
@@ -47,14 +48,17 @@
 
 .input-group input:focus,
 .input-group textarea:focus {
-    border-color: #007bff;
+    border-color: #6f6af8;
     outline: none;
 }
 
 button[type="submit"] {
-    background-color: hsl(242, 91%, 69%, 18%);
-    color: #6f6af8;
+    background-color: #6f6af8;
+    color: #f2f2fe;
+    width: 100px;
     padding: 10px 20px;
+    margin-top: 10px;
+    float: right;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -64,5 +68,6 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #f2f2fe;
+    color: #0f0f3e;
     font-family: 'Montserrat', sans-serif;
 }

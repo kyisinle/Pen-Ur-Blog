@@ -6,8 +6,9 @@
                         <div class="input-group">
                             <label for="comment">Comment:</label>
                             <textarea id="comment" name="comment" rows="5" required></textarea>
+                            <button type="submit">Submit</button>
                         </div>
-                        <button type="submit">Submit</button>
+                        
                     </form>
                 </div>
 
