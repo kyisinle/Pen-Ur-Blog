@@ -66,6 +66,7 @@ require 'config/constants.php';
                 <input type="text" placeholder="Last Name">
                 <input type="text" placeholder="Username">
                 <input type="email" placeholder="Email">
+                <input type="text" placeholder="Edit Bio">
                 <!--
                 <input type="password" placeholder="Change Password">
                 <input type="password" placeholder="Confirm Password">-->
