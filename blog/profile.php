@@ -7,27 +7,60 @@ include 'partials/header1.php';
         <div class="divide">
             <section class="profile-info">
                 <img src="./images/avatar1.jpg" alt="Profile Picture" class="profile-pic">
-                <div class="profile-details">
-                    <h1>Jane Doe</h1>
-                    <!--
-                    <p>Creative Designer | Traveler</p>-->
+                <div class="profile-details" style="position:relative; top:-20px">
+                    
+                    <a href="profile.php">
+                    <h1 style="position:relative; top:22px; font-size:37px;">Jane Doe</h1></a>
+                    <p  style="width: 650px; 
+                    
+                    border-radius: 8px;
+                     color: white;
+                     background-color:#0f0f3e ;
+                     overflow: hidden;
+                     width: 650px;
+                     font-size:17px;
+                    position:relative;
+                    right:12px;
+                    top:21px;
+                    border:none;
+                    left:3.8px;
+                    ">Creative Designer | Traveler</p>
+                    
+                
+                <!--
+                    <textarea placeholder="Add bio" style="width: 650px; 
+                    
+                    border-radius: 8px;
+                     color: white;
+                     background-color:#0f0f3e ;
+                     overflow: hidden;
+                     width: 650px;
+                     font-size:17px;
+                    position:relative;
+                    right:21px;
+                    top:14px;
+                    border:none;
+                    " >Creative Designer | Traveler</textarea>-->
                 </div>
+                <h4 style="background-color:black ; color:#5854c7; border-radius: 5px;padding: 6.5px; position:relative; right:43%; bottom: 60px; ">Admin</h4>
                 <button class="edit-pp-btn" type="submit" style="position: absolute; left: 85%;"><a href="edit-profile.php">Edit profile</a</button>
+                
             </section>
-            <div style="border: 1px solid white;width:1900px ;position: absolute;right: -5px;"></div>
+            <a href="#" style="cursor:default ;">
+            <div style="border: 2px solid white;width:2000px ;position: relative;right: 150px;top:-2px;margin:0; "></div></a>
             <section class="content">
                 <aside class="left-column">
                     <!--
                     <div class="about">
                         <h3>About Me</h3>
                         <p>Passionate about design and exploring new cultures. I love capturing moments through my lens.</p>
-                    </div>-->
+                    </div>
                     <a href="#" style="cursor: text;">
                         <div class="about">
                             <h3>About me</h3>
                             <p>Passionate about design and exploring new cultures. I love capturing moments through my lens.</p>
                         </div>
-                    </a>
+                    </a>-->
 
 
 
@@ -47,7 +80,7 @@ include 'partials/header1.php';
                         <h3>Create a blog</h3>
                         <div class="new-post">
 
-                            <a href="add-post.php"> <textarea style="border-color: #0056b3;" placeholder="Create a blog..."></textarea></a>
+                            <a href="add-post.php"> <textarea style="border-color: #0056b3; position: relative; right: 3px; " placeholder="Create a blog..."></textarea></a>
 
                         </div>
                     </div>
