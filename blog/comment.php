@@ -13,33 +13,26 @@
                 </div>
 
 
-                <h2 style="padding-bottom: 20px;">-Comments</h2>
-                <div style="display: flex; border-bottom: 1px solid white;">
-                    <div>
-                        <div class="post__author-avatar">
-                            <img src="./images/avatar4.jpg" alt="">
-                        </div>
-                        <div class="post__author-info">
-                            <h5 style="padding-top: 7px;">John Mills<br><br></h5>
-                        </div>
-                    </div>
-                    <div class="cmt">
-                        <p>: Very good!</p>
-                    </div>
+                <h2 style="padding-bottom: 30px;">-Comments</h2>
+                <div style="display: flex;">
+                <div class="post__author-avatar">
+                    <img src="images/avatar6.jpg" >
+                </div>
+                <div class="postcmt">
+                    <h4 >Alex </h4>
+                    <p >Good! sfewe wfwfwfwefwefwfwfwfwef<br> fwrwrwrwrwr<br>sggwgwegwgew<br>segwegweg</p>
 
                 </div>
-                <br><br>
+            </div>
 
-                <div style="display: flex; border-bottom: 1px solid white;">
-                    <div>
-                        <div class="post__author-avatar">
-                            <img src="./images/avatar6.jpg" alt="">
-                        </div>
-                        <div class="post__author-info">
-                            <h5 style="padding-top: 7px;">John Wick<br><br></h5>
-                        </div>
-                    </div>
-                    <div class="cmt">
-                        <p>: Excellent work! Keep it up.</p>
-                    </div>
+
+            <div style="display: flex;padding-top: 28px;">
+                <div class="post__author-avatar">
+                    <img src="images/avatar7.jpg" >
                 </div>
+                <div class="postcmt">
+                    <h4>Periera </h4>
+                    <p>Good! sfewe wfwfwfwefwefwfwfwfwef<br> fwrwrwrwrwr<br>sggwgwegwgew<br>segwegweg</p>
+
+                </div>
+            </div>
