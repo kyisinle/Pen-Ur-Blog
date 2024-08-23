@@ -71,3 +71,29 @@ button[type="submit"]:hover {
     color: #0f0f3e;
     font-family: 'Montserrat', sans-serif;
 }
+
+
+/*-------------------------------------POST COMMENTS--------------------------------*/
+
+.postcmt {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: black;
+    width: 630px;
+    position: relative;
+    left: 12.5px;
+    bottom: 5px;
+}
+
+.postcmt h4 {
+    padding-left: 5px;
+    padding-top: 1.5px;
+}
+
+.postcmt p {
+    position: relative;
+    bottom: 10.5px;
+    padding-top: 15px;
+    padding-left: 5px;
+}
