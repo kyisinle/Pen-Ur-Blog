@@ -544,6 +544,12 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+.new-post textarea {
+    border-color: #0056b3;
+    position: relative;
+    right: 3px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -558,6 +564,7 @@ button[type="submit"]:hover {
     margin-right: 5%;
     width: 45%;
     padding-left: 30px;
+    padding-right: 70px;
 }
 
 .profile-info {
@@ -567,15 +574,20 @@ button[type="submit"]:hover {
     background-color: #0f0f3e;
 }
 
+.profile-details {
+    position: relative;
+    top: -20px
+}
+
 .profile-details h1 {
     margin-bottom: 10px;
-    font-size: 40px;
     color: white;
+    position: relative;
+    top: 22px;
+    font-size: 37px;
 }
 
 .profile-details p {
-    font-size: 180px;
-    color: white;
     position: relative;
     width: 650px;
     border-radius: 8px;
@@ -658,4 +670,23 @@ button[type="submit"]:hover {
     background-color: #008080;
     color: white;
     font-family: 'Montserrat', sans-serif;
+}
+
+.Admintag {
+    background-color: black;
+    color: #5854c7;
+    border-radius: 5px;
+    padding: 6.5px;
+    position: relative;
+    right: 43%;
+    bottom: 60px;
+}
+
+.profileborder {
+    border: 2px solid white;
+    width: 2000px;
+    position: relative;
+    right: 150px;
+    top: -2px;
+    margin: 0;
 }
