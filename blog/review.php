@@ -14,7 +14,7 @@ require 'config/constants.php';
 <body>
     <div class="wrapper">
         <h3>Leave us a review !</h3>
-        <form action="#">
+        <form action="send-review.php" method="POST">
             <div class="rating">
                 <input type="number" name="rating" hidden>
                 <i class='bx bx-star star'></i>
@@ -23,9 +23,9 @@ require 'config/constants.php';
                 <i class='bx bx-star star'></i>
                 <i class='bx bx-star star'></i>
             </div>
-            <textarea name="opinion" cols="1" rows="1" placeholder="Username"></textarea>
-            <textarea name="opinion" input type="email" cols="1" rows="1" placeholder="Email"></textarea>
-            <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion . . ."></textarea>
+            <textarea name="username" cols="1" rows="1" placeholder="Username" require></textarea>
+            <textarea name="email" input type="email" cols="1" rows="1" placeholder="Email" require></textarea>
+            <textarea name="opinion" cols="30" rows="5" placeholder="Your opinion . . ." require></textarea>
             <div class="btn-group">
                 <button type="submit" class="btn submit">Submit</button>
                 <button class="btn cancel">Cancel</button>
