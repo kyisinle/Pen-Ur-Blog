@@ -76,11 +76,11 @@ button[type="submit"]:hover {
 /*-------------------------------------POST COMMENTS--------------------------------*/
 
 .postcmt {
-    border: 1px solid black;
+    border: 1px solid #0f0f3e;
     border-radius: 10px;
     padding: 10px;
-    background-color: black;
-    width: 630px;
+    background-color: #0f0f3e;
+    width: 501.5px;
     position: relative;
     left: 12.5px;
     bottom: 5px;
@@ -96,4 +96,17 @@ button[type="submit"]:hover {
     bottom: 10.5px;
     padding-top: 15px;
     padding-left: 5px;
+}
+
+.cmttop {
+    display: flex;
+    position: relative;
+    right: 20px;
+}
+
+.cmtrest {
+    display: flex;
+    padding-top: 28px;
+    position: relative;
+    right: 20px;
 }
