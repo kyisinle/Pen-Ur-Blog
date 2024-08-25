@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 ?>
 
 <section class="form__section">
-    <div class="container form__scetion-container">
+    <div class="container form__section-container">
         <h2>Edit User</h2>
         <form action="<?= ROOT_URL ?>admin/edit-user-logic.php" method="POST">
             <input type="hidden" value="<?= $user['id'] ?>" name="id">

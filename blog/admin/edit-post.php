@@ -3,7 +3,7 @@ include 'partials/header.php';
 ?>
 
 <section class="form__section">
-    <div class="container form__scetion-container">
+    <div class="container form__section-container">
         <h2>Edit Post</h2>
         <form action="" enctype="multipart/form-data">
             <input type="text" placeholder="Title">

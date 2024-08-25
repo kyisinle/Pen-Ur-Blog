@@ -24,7 +24,7 @@ unset($_SESSION['signin-data']);
     </head>
     <body>
 <section class="form__section">
-    <div class="container form__scetion-container">
+    <div class="container form__section-container">
         <h2>Sign In</h2>
         <?php if (isset($_SESSION['signup-success'])) : ?>
             <div class="alert__message success">
