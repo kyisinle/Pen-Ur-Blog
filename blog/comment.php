@@ -14,11 +14,11 @@
 
 
                 <h2 style="padding-bottom: 30px;">-Comments</h2>
-                <div style="display: flex;">
+                <div  class="cmttop">
                 <div class="post__author-avatar">
                     <img src="images/avatar6.jpg" >
                 </div>
-                <div class="postcmt">
+                <div class="postcmt" >
                     <h4 >Alex </h4>
                     <p >Good! sfewe wfwfwfwefwefwfwfwfwef<br> fwrwrwrwrwr<br>sggwgwegwgew<br>segwegweg</p>
 
@@ -26,11 +26,11 @@
             </div>
 
 
-            <div style="display: flex;padding-top: 28px;">
+            <div  class="cmtrest">
                 <div class="post__author-avatar">
                     <img src="images/avatar7.jpg" >
                 </div>
-                <div class="postcmt">
+                <div class="postcmt" >
                     <h4>Periera </h4>
                     <p>Good! sfewe wfwfwfwefwefwfwfwfwef<br> fwrwrwrwrwr<br>sggwgwegwgew<br>segwegweg</p>
 
