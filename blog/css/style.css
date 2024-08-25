@@ -961,7 +961,7 @@ select {
 }
 
 
-/*==============PROFILE==============*/
+/*==============COMMENT==============*/
 
 .comment-box {
     width: auto;
@@ -1049,4 +1049,17 @@ button[type="submit"]:hover {
     padding-top: 15px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+.admin_tag {
+    width: 5em;
+    text-align: center;
+    background-color: black;
+    color: #5854c7;
+    border-radius: 5px;
+    padding: 4px;
+    position: relative;
+    bottom: 3px;
+    left: 2px;
+    font-size: 0.5em;
 }
