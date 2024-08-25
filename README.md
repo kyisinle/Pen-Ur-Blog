@@ -12,7 +12,7 @@ If you want an access as an admin, change your "is_admin" role from users table 
 5. Import blog.mysql.
 
 ## Install PHPMailer using Composer
-1. Install Composer (If You Don't Have It)
+1. Install Composer (If You Don't Have It) <BR>
    Download Composer: https://getcomposer.org/download/
 2. Install PHPMailer via Composer <BR>
    In Command Prompt type:
