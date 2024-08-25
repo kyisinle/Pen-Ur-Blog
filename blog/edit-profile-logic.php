@@ -20,6 +20,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['edit-profile'] = "Please enter your Username";
     } elseif (!$email) {
         $_SESSION['edit-profile'] = "Please enter your Email";
+    } elseif (strlen($bio) > 120) {
+        $_SESSION['edit-profile'] = "Please ensure the bio is no more than 120 characters.";
     } else {
         // check if username or email already exist in database
         $user_check_query = "SELECT * FROM users WHERE (username='$username' OR email='$email') AND id!=$id";
