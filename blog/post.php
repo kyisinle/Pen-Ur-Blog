@@ -1,5 +1,11 @@
 <?php
 include 'partials/header.php';
+
+// fetch comments from database [not for specific post]
+$cmd_id = $_SESSION['user-id'];
+
+$query = "SELECT * FROM comment JOIN users ON comment.user_id = users.id ORDER BY comment.cmd_id DESC";
+$result = mysqli_query($connection, $query);
 ?>
 
         <section class="singlepost">
@@ -34,9 +40,32 @@ include 'partials/header.php';
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quis molestiae eius illum rerum iusto culpa, magnam numquam ad? Quo itaque officia rerum? Nulla tenetur adipisci ipsa eius atque in.
                 </p>
 
-                <!--=================== COMMENT-->
-                <?php  include 'comment.php'; ?>
 
+                <!--=================== COMMENT-->
+
+                <div class="comment-box">
+                    <h3>Leave a Comment</h3>
+                    <form action="post-comment-logic.php" method="POST">
+                        <div class="input-group">
+                            <label for="comment">Comment:</label>
+                            <textarea id="comment" name="comment" rows="5" required></textarea>
+                            <button type="submit" name="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <h2>-Comments</h2>
+                <?php while($comments = mysqli_fetch_assoc($result)) : ?>
+                    <div class="cmt">
+                        <div class="post__author-avatar">
+                            <img src="<?= ROOT_URL . 'images/' . $comments['avatar'] ?>">
+                        </div>
+                        <div class="postcmt">
+                            <h4> <?= $comments['username'] ?> </h4>
+                            <div> <?= $comments['content'] ?> </div>
+                        </div>
+                    </div> 
+                <?php endwhile ?> 
             </div>
         </section>
 <!--==============END OF SINGLE POST-->
