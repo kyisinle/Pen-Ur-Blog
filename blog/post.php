@@ -61,13 +61,19 @@ $result = mysqli_query($connection, $query);
                             <img src="<?= ROOT_URL . 'images/' . $comments['avatar'] ?>">
                         </div>
                         <div class="postcmt">
-                            <h4> <?= $comments['username'] ?> </h4>
+                            <h4> 
+                                <?= $comments['username'] ?>
+                                <?php if ($comments['is_admin'] == 1) : ?>
+                                    <span class="admin_tag">Admin</span>
+                                <?php endif ?>
+                            </h4>
                             <div> <?= $comments['content'] ?> </div>
                         </div>
                     </div> 
                 <?php endwhile ?> 
             </div>
         </section>
+        
 <!--==============END OF SINGLE POST-->
 
 
