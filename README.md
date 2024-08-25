@@ -1,8 +1,8 @@
 # Pen-Ur-Blog
 
-Your directory to the blog file should be "C:\xampp\htdocs\blog". <BR>
-You have to create an account first before accessing the registered user privileges. (You can't just type the URL) <BR>
-If you want an access as an admin, change your "is_admin" role from users table in blog.sql to "1". <BR> <BR>
+- Your directory to the project file should be "C:\xampp\htdocs\blog". <BR>
+- You have to create a pen-ur-blog account first before accessing the registered user privileges. (You can't just type the URL) <BR>
+- If you want an access as an admin, change your "is_admin" role from users table in blog.sql to "1". <BR> <BR>
 
 ## How to connect database
 1. Make a user account in phpmyadmin. Make sure you grant all privileges. (Mark everything under "Database for user account" and "Global privileges") 
