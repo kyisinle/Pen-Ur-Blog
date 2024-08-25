@@ -14,7 +14,7 @@ If you want an access as an admin, change your "is_admin" role from users table 
 ## Install PHPMailer using Composer
 1. Install Composer (If You Don't Have It)
    Download Composer: https://getcomposer.org/download/
-2. Install PHPMailer via Composer
+2. Install PHPMailer via Composer <BR>
    In Command Prompt type:
    - cd C:/xampp/htdocs/blog
    - composer require phpmailer/phpmailer
