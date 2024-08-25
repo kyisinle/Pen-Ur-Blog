@@ -841,9 +841,10 @@ select {
 /*==============PROFILE==============*/
 
 .edit-btn {
-    margin: 0 0 6rem 9rem;
-    align-self: flex-end;
-    margin-right: auto;
+    position: relative;
+    left: 10%;
+    height: 40px;
+    margin-top: 25px;
 }
 
 .profile-pic {
@@ -885,21 +886,18 @@ select {
  
 .profile-info {
     display: flex;
-    align-items: center;
     margin: 10rem 0 5rem 13rem;
     background-color: #0f0f3e;
 }
 
 .profile-details {
     position: relative;
-    top: -65px;
 }
 
 .profile-details h1 {
     margin-bottom: 10px;
     color: white;
     position: relative;
-    top: 22px;
     font-size: 37px;
 }
 
@@ -911,10 +909,6 @@ select {
     color: white;
     overflow: hidden;
     font-size: 17px;
-    position: relative;
-    right: 12px;
-    top: 21px;
-    left: 3.8px;
 }
 
 .profileborder {
