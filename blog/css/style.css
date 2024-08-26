@@ -841,10 +841,9 @@ select {
 /*==============PROFILE==============*/
 
 .edit-btn {
-    position: relative;
-    left: 10%;
     height: 40px;
     margin-top: 25px;
+    margin-left: 4rem;
 }
 
 .profile-pic {
@@ -886,12 +885,12 @@ select {
  
 .profile-info {
     display: flex;
-    margin: 10rem 0 5rem 13rem;
+    margin: 10rem 0 5rem 15rem;
     background-color: #0f0f3e;
 }
 
 .profile-details {
-    position: relative;
+    width: 650px;
 }
 
 .profile-details h1 {
