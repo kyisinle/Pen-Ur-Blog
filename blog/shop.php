@@ -1,135 +1,60 @@
 <?php
 include 'partials/header.php';
+
+// Fetch items from the database
+$query = "SELECT * FROM items";
+$items = mysqli_query($connection, $query);
 ?>
 
-    <section class="search__bar">
-
-    </section>
-    <!--========== End of search-->
-    
-    <section class="posts">
-        <div class="container posts__container">
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item1.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Star Face - Acene Kit</a></h3>
-                    <p class="post__body">
-                        Acene kit in which anyone could use to cover up their acenes and scars.
-                    </p>
-                </div>
-            </article>
-
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item2.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">New York Yankees Men Hat</a></h3>
-                    <p class="post__body">
-                        Cream color fashionable hat, suits for every genders.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item3.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Apple Watch Series 9</a></h3>
-                    <p class="post__body">
-                        Apple watch (White). While it is expensive, it is convienient to wear around with many features available.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item5.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Shampoo Brush</a></h3>
-                    <p class="post__body">
-                        A brush used while washing your hair. This can enhance the volume of your hair and make the circulation of your scalp better.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item4.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Airpod</a></h3>
-                    <p class="post__body">
-                        Cute airpods with better hearing qualities.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item6.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Fino Hair Mask</a></h3>
-                    <p class="post__body">
-                        Japan's winning hair treatment ! Soften and moisturize your hair.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item7.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Innis Free Skincare Set</a></h3>
-                    <p class="post__body">
-                        The best skincare set by yours truely, Innis Free. Suits for oily skin and gives you the youthful glow.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item7.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Innis Free Skincare Set</a></h3>
-                    <p class="post__body">
-                        The best skincare set by yours truely, Innis Free. Suits for oily skin and gives you the youthful glow.
-                    </p>
-                </div>
-            </article>
-            <article class="post">
-                <div class="post__thumbnail">
-                    <img src="./images/item7.jpg">
-                </div>
-                <div class="post__info">
-                    <a class="buyit__button">Price : $123</a>
-                    <h3 class="post__title"><a href="item.php">Innis Free Skincare Set</a></h3>
-                    <p class="post__body">
-                        The best skincare set by yours truely, Innis Free. Suits for oily skin and gives you the youthful glow.
-                    </p>
-                </div>
-            </article>
+<section class="search__bar">
+    <form class="container search__bar-container" action="">
+        <div>
+            <i class="uil uil-search"></i>
+            <input type="search" name="" placeholder="Search">
         </div>
-    </section>
-    <!--============== End of posts-->
+        <button type="submit" class="btn">Go</button>
+    </form>
+</section>
+<!-- ========== End of search ================== -->
 
-    <!-- <section class="container">
-        <article class="prev_next_btn" style="display: flex; flex-direction:row; align-items:end;"> -->
-            <!--====<button class="category__button" style="margin: 5px">Previous</button>---->
-            <!-- <button class="category__button" style="position: relative; bottom: 35px; "><a href="shop1.php">Next</a></button>
-        </article>
-    </section> -->
 
-    <!--============== End of PRE NEXT BUTTON -->
+<section class="posts">
+    <div class="container posts__container">
+        <?php if (mysqli_num_rows($items) > 0) : ?>
+            <?php while ($item = mysqli_fetch_assoc($items)) : ?>
+                <article class="post">
+                    <div class="post__thumbnail">
+                        <!-- thumbnail  -->
+                        <a href="item.php?id=<?= $item['id'] ?>">
+                            <img src="./images/<?= $item['thumbnail'] ?>" alt="<?= $item['title'] ?>">
+                        </a>
+                    </div>
+                    <div class="post__info">
+                        <!-- title -->
+                        <h3 class="post__title">
+                            <a href="item.php?id=<?= $item['id'] ?>">
+                                <?= $item['title'] ?>
+                            </a>
+                        </h3>
+                        <!-- description -->
+                        <p class="post__body">
+                            <?= $item['description'] ?>
+                        </p>
+                        <div>
+                            <!-- price -->
+                            <button disabled="disabled" class="buyit__button">
+                                $<?= $item['price'] ?>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            <?php endwhile; ?>
+        <?php else : ?>
+            <p>No items found.</p>
+        <?php endif; ?>
+    </div>
+</section>
+<!--============== End of posts-->
 
 <?php
 include 'partials/footer.php';
