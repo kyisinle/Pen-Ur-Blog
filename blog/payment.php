@@ -1,5 +1,15 @@
 <?php
 require 'config/constants.php';
+
+if (isset($_GET['user_id']) && isset($_GET['id'])) {
+    $user_id = filter_var($_GET['user_id'], FILTER_SANITIZE_NUMBER_INT);
+    $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+} else {
+    // If user_id or item_id is not provided, redirect back or show an error
+    header('location: ' . ROOT_URL . 'shop.php');
+    exit();
+}
+
 ?>
 
 
@@ -18,38 +28,48 @@ require 'config/constants.php';
 
 <body>
     <div class="container">
-        <form action="">
+        <?php if (isset($_SESSION['add-payment'])) : ?>
+            <div class="alert__message error">
+                <p><?= $_SESSION['add-payment'] ?></p>
+                <?php unset($_SESSION['add-payment']) ?>
+            </div>
+        <?php endif; ?>
+        <form action="<?= ROOT_URL ?>payment-logic.php" method="POST">
             <div class="row">
                 <div class="column">
                     <h3 class="title">Billing Address</h3>
+                    <input type="hidden" name="user_id" value="<?= htmlspecialchars($user_id) ?>">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
                     <div class="input-box">
                         <span>Full Name :</span>
-                        <input type="text" placeholder="Your Name Here">
+                        <input type="text" name="fullname" placeholder="Your Name Here" value="<?= $_SESSION['add-payment-data']['fullname'] ?? '' ?>">
                     </div>
                     <div class="input-box">
                         <span>Email: </span>
-                        <input type="email" placeholder="example@example.com">
+                        <input type="email" name="email" placeholder="example@example.com" value="<?= $_SESSION['add-payment-data']['email'] ?? '' ?>">
                     </div>
                     <div class="input-box">
                         <span>Phone no. :</span>
-                        <input type="text" placeholder="09 XXXXXXXXX">
+                        <input type="text" name="phone" placeholder="09 XXXXXXXXX" value="<?= $_SESSION['add-payment-data']['phone'] ?? '' ?>">
                     </div>
                     <div class="input-box">
                         <span>Address :</span>
-                        <input type="text" placeholder="Room - Street - Locality">
+                        <input type="text" name="address" placeholder="Room - Street - Locality" value="<?= $_SESSION['add-payment-data']['address'] ?? '' ?>">
                     </div>
                     <div class="input-box">
                         <span>City :</span>
-                        <input type="text" placeholder="Berlin">
+                        <input type="text" name="city" placeholder="Berlin" value="<?= $_SESSION['add-payment-data']['city'] ?? '' ?>">
                     </div>
-                        <div class="input-box">
-                            <span>State :</span>
-                            <input type="text" placeholder="Germany">
-                        </div>
+                    <div class="input-box">
+                        <span>State :</span>
+                        <input type="text" name="state" placeholder="Germany" value="<?= $_SESSION['add-payment-data']['state'] ?? '' ?>">
+                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit" name="submit" class="btn">Submit</button>
         </form>
+        <?php unset($_SESSION['add-payment-data']) ?>
     </div>
 </body>
+
 </html>
