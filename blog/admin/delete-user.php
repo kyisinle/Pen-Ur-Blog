@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'config/database.php';
 
 if (isset($_GET['id'])) {
@@ -21,6 +21,17 @@ if (isset($_GET['id'])) {
 
     // FOR LATER
     // fetch all thumbnails of user's posts and delete them
+    $thumbnails_query = "SELECT thumbnail FROM posts WHERE author_id=$id";
+    $thumbnails_result = mysqli_query($connection, $thumbnails_query);
+    if (mysqli_num_rows($thumbnails_result) > 0) {
+        while ($thumbnail = mysqli_fetch_assoc($thumbnails_result)) {
+            $thumbnail_path = '../images/' . $thumbnail['thumbnail'];
+            // delete thumbnail from images folder is exist
+            if ($thumbnail_path) {
+                unlink($thumbnail_path);
+            }
+        }
+    }
 
 
 
@@ -29,9 +40,9 @@ if (isset($_GET['id'])) {
     $delete_user_query = "DELETE FROM users WHERE id=$id";
     $delete_user_result = mysqli_query($connection, $delete_user_query);
     if (mysqli_errno($connection)) {
-        $_SESSION['delete-user'] = "Couldn't delete '{$user['firstname']} {$user['lastname']}'";
+        $_SESSION['delete-user'] = "Couldn't delete '{$user['firstname']} '{$user['lastname']}'";
     } else {
-        $_SESSION['delete-user-success'] = "'{$user['firstname']} {$user['lastname']}' deleted successfully";
+        $_SESSION['delete-user-success'] = "{$user['firstname']} {$user['lastname']} deleted successfully";
     }
 }
 

@@ -12,6 +12,8 @@ if (isset($_GET['id'])) {
 }
 ?>
 
+
+
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Edit User</h2>
@@ -20,10 +22,10 @@ if (isset($_GET['id'])) {
             <input type="text" value="<?= $user['firstname'] ?>" name="firstname" placeholder="First Name">
             <input type="text" value="<?= $user['lastname'] ?>" name="lastname" placeholder="Last Name">
             <select name="userrole">
-                <option value="0">User</option>
+                <option value="0">Author</option>
                 <option value="1">Admin</option>
             </select>
-            <button type="submit" name="submit" class="btn">Submit</button>
+            <button type="submit" name="submit" class="btn">Update User</button>
         </form>
     </div>
 </section>
