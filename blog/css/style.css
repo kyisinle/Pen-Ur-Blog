@@ -452,11 +452,104 @@ footer ul a:hover {
 /* ======= EMPTY PAGES */
 
 .empty__page {
-    height: 70vh;
-    display: grid;
-    place-content: center;
+    height: 1400px;
+    padding-top: 10px;
 }
 
+.WelcomePUB h2 {
+    position: absolute;
+    top: 17%;
+    padding-left: 125px;
+    font-size: 30px;
+}
+
+.WelcomePUB p {
+    position: absolute;
+    top: 25%;
+    padding-left: 132px;
+    font-size: 24px;
+    width: 95%
+}
+
+.OurMission h2 {
+    position: absolute;
+    top: 17%;
+    padding-left: 125px;
+    font-size: 30px;
+    padding-top: 210px;
+}
+
+.OurMission p {
+    position: absolute;
+    top: 25%;
+    padding-left: 132px;
+    font-size: 24px;
+    padding-top: 210px;
+    width: 95%;
+}
+
+.WhyUnique h2 {
+    position: absolute;
+    top: 17%;
+    padding-left: 125px;
+    font-size: 30px;
+    padding-top: 462px;
+}
+
+.WhyUnique p {
+    position: absolute;
+    top: 25%;
+    padding-left: 132px;
+    font-size: 24px;
+    padding-top: 462px;
+    width: 95%;
+}
+
+.JoinUs h2 {
+    position: absolute;
+    top: 17%;
+    padding-left: 125px;
+    font-size: 30px;
+    padding-top: 715px;
+}
+
+.JoinUs p {
+    position: absolute;
+    top: 25%;
+    padding-left: 132px;
+    font-size: 24px;
+    padding-top: 715px;
+    width: 95%;
+}
+
+.GIT h2 {
+    position: absolute;
+    top: 17%;
+    padding-left: 125px;
+    font-size: 30px;
+    padding-top: 925px;
+}
+
+.GIT p {
+    position: absolute;
+    top: 25%;
+    padding-left: 132px;
+    font-size: 24px;
+    padding-top: 925px;
+    width: 95%;
+}
+
+.ByPUB {
+    position: relative;
+    top: 89%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ByPUB h2 {
+    padding-left: 1300px;
+}
 
 /* ======= GENERAL FORMS */
 
