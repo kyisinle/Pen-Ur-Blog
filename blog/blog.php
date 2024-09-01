@@ -24,7 +24,10 @@ $posts = mysqli_query($connection, $query);
         <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
                 <div class="post__thumbnail">
-                    <img src="./images/<?= $post['thumbnail'] ?>">
+                    <!-- <img src="./images/<?= $post['thumbnail'] ?>"> -->
+                    <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>">
+                        <img src="./images/<?= $post['thumbnail'] ?>" alt="<?= $post['title'] ?>">
+                    </a>
                 </div>
                 <div class="post__info">
                     <?php
@@ -50,11 +53,14 @@ $posts = mysqli_query($connection, $query);
                         $author = mysqli_fetch_assoc($author_result);
                         ?>
                         <div class="post__author-avatar">
-                            <img src="./images/<?= $author['avatar'] ?>">
+                            <!-- <img src="./images/<?= $author['avatar'] ?>"> -->
+                            <a href="<?= ROOT_URL ?>profile.php?id=<?= $author['id'] ?>">
+                                <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['firstname'] ?>'s Avatar">
+                            </a>
                         </div>
                         <div class="post__author-info">
                             <h5>
-                                By: 
+                                By:
                                 <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
                                     <?= "{$author['firstname']} {$author['lastname']}" ?>
                                 </a>
