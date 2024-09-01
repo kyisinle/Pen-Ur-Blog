@@ -3,25 +3,28 @@ require 'config/database.php';
 
 if (isset($_POST['submit'])) {
 
-    // get updated form data 
-    $id = filter_var($_POST['id']);
-    $title = filter_var($_POST['title']);
-    $description = filter_var($_POST['description']);
-    $price = filter_var($_POST['price']);
+    // Get updated form data and sanitize it
+    $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+    $title = mysqli_real_escape_string($connection, trim($_POST['title']));
+    $description = mysqli_real_escape_string($connection, trim($_POST['description']));
+    $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
-    // check for valid input 
-    if (!$title || !$description || !$price) {
-        $_SESSION['error'] = "Invalid from input on edit page.";
+    // Check for valid input
+    if (empty($title) || empty($description) || empty($price)) {
+        $_SESSION['error'] = "All fields are required.";
+        header('Location: ' . ROOT_URL . 'admin/edit-item.php?id=' . $id);
+        die();
     } else {
+        // Update item in the database
         $query = "UPDATE items SET title='$title', description='$description', price=$price WHERE id=$id LIMIT 1";
         $result = mysqli_query($connection, $query);
 
-        if (mysqli_error($connection)) {
-            $_SESSION['edit-item'] = "Failed to update item";
+        if ($result) {
+            $_SESSION['edit-item-success'] = "Item successfully updated.";
         } else {
-            $_SESSION['edit-item-success'] = "Item successfully updated";
+            $_SESSION['edit-item'] = "Failed to update item: " . mysqli_error($connection);
         }
     }
 }
-header('location:' . ROOT_URL . 'admin/manage-item.php');
+header('Location: ' . ROOT_URL . 'admin/manage-item.php');
 die();
