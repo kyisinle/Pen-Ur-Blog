@@ -23,6 +23,25 @@ $items = mysqli_query($connection, $query);
 
 // Calculate the total number of pages
 $total_pages = ceil($total_items / $items_per_page);
+
+function truncate_description($text, $max_lines = 4)
+{
+    // Approximate characters per line
+    $chars_per_line = 50; // Adjust this value based on your CSS line length
+    $max_length = $chars_per_line * $max_lines;
+
+    if (strlen($text) <= $max_length) {
+        return $text;
+    }
+
+    $truncated = substr($text, 0, $max_length);
+    $last_space = strrpos($truncated, ' ');
+    if ($last_space !== false) {
+        $truncated = substr($truncated, 0, $last_space);
+    }
+    return $truncated . '...';
+}
+
 ?>
 
 <section class="dashboard">
@@ -125,9 +144,9 @@ $total_pages = ceil($total_items / $items_per_page);
                 <tbody>
                     <?php while ($item = mysqli_fetch_assoc($items)) : ?>
                         <tr>
-                            <td><?= $item['title'] ?></td>
-                            <td><?= $item['description'] ?></td>
-                            <td><?= $item['price'] ?></td>
+                            <td><?= htmlspecialchars($item['title']) ?></td>
+                            <td><?= htmlspecialchars(truncate_description($item['description'], 4)) ?></td>
+                            <td><?= htmlspecialchars($item['price']) ?></td>
                             <td><a href="<?= ROOT_URL ?>admin/edit-item.php?id=<?= $item['id'] ?>" class="btn sm">Edit</a></td>
                             <td><a href="<?= ROOT_URL ?>admin/delete-item.php?id=<?= $item['id'] ?>" class="btn sm danger">Delete</a></td>
                         </tr>
@@ -150,8 +169,7 @@ $total_pages = ceil($total_items / $items_per_page);
                 <?php endif; ?>
             </div>
 
-    </div>
-    </main>
+        </main>
     </div>
 </section>
 
