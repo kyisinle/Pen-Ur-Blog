@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and sanitize POST data
     $user_id = filter_var($_POST['user_id'], FILTER_SANITIZE_NUMBER_INT);
     $item_id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
+    $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $fullname = filter_var($_POST['fullname'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
@@ -114,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p><strong>Address:</strong> $address</p>
             <p><strong>City:</strong> $city</p>
             <p><strong>State:</strong> $state</p>
-            <p><strong>Item ID:</strong> $item_id</p>
+            <p><strong>Item:</strong> $title</p>
         </div>
         <div class='footer'>
             <p>This is an automated message. Please do not reply.</p>
