@@ -39,14 +39,6 @@ unset($_SESSION['signup-data']);
                             ?>
                         </p> 
                     </div>
-                <?php elseif (isset($_SESSION['signup-success'])) : ?>
-                    <div class="alert__message success">
-                        <p>
-                            <?= $_SESSION['signup-success']; 
-                            unset($_SESSION['signup-success']);
-                            ?>
-                        </p>
-                    </div>
                 <?php endif ?>
                 <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
                     <input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First Name">

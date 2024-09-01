@@ -76,9 +76,7 @@ if (isset($_POST['submit'])) {
         $insert_user_result = mysqli_query($connection, $insert_user_query);
 
         if (!mysqli_errno($connection)) {
-            // redirect to login page with success message
-            $_SESSION['signup-success'] = "Registration successful. Please log in";
-            header('location: ' . ROOT_URL . 'signup.php');
+            header('location: ' . ROOT_URL . 'index.php');
             die();
         } 
     }  
