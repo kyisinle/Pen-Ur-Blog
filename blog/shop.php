@@ -52,7 +52,7 @@ $items = mysqli_query($connection, $query);
                         <div>
                             <!-- price -->
                             <button disabled="disabled" class="buyit__button">
-                                $<?= $item['price'] ?>
+                                <?= $item['price'] ?> MMK
                             </button>
                         </div>
                     </div>
