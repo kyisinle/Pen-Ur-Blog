@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
             </p>
             <!-- price -->
             <div style="display: flex;justify-content: space-between;">
-                <button style="margin-right: 10px;" class="buyit__button">Price: $<?= htmlspecialchars($price) ?></button>
+                <button style="margin-right: 10px;" class="buyit__button">Price: <?= htmlspecialchars($price) ?> MMK</button>
                 <!-- Form to handle the purchase -->
                 <form action="payment.php" method="get">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
