@@ -4,7 +4,7 @@ require 'config/constants.php';
 if (isset($_GET['user_id']) && isset($_GET['id']) && isset($_GET['title'])) {
     $user_id = filter_var($_GET['user_id'], FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-    $title = filter_var($_GET['title'], FILTER_SANITIZE_NUMBER_INT);
+    $title = filter_var($_GET['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 } else {
     // If user_id or item_id is not provided, redirect back or show an error
     header('location: ' . ROOT_URL . 'shop.php');
