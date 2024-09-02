@@ -92,7 +92,8 @@ textarea {
 }
 
 .btn-group .btn.submit:hover {
-    background: var(--white);
+    background: var(--grey);
+    color: #0f0f3e;
 }
 
 .btn-group .btn.cancel {
