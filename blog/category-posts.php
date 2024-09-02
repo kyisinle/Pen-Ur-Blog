@@ -57,9 +57,13 @@ if (isset($_GET['id'])) {
                             <div class="post__author-info">
                                 <h5>
                                     By:
-                                    <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                    <?php if (isset($_SESSION['user-id'])) : ?>
+                                        <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                            <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                        </a>
+                                    <?php else : ?>
                                         <?= "{$author['firstname']} {$author['lastname']}" ?>
-                                    </a>
+                                    <?php endif ?>
                                     <?php if ($author['is_admin'] == 1) : ?>
                                         <b class="admin_tag">Admin</b>
                                     <?php endif ?>

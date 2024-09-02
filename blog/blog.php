@@ -24,7 +24,6 @@ $posts = mysqli_query($connection, $query);
         <?php while ($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
                 <div class="post__thumbnail">
-                    <!-- <img src="./images/<?= $post['thumbnail'] ?>"> -->
                     <a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>">
                         <img src="./images/<?= $post['thumbnail'] ?>" alt="<?= $post['title'] ?>">
                     </a>
@@ -53,7 +52,6 @@ $posts = mysqli_query($connection, $query);
                         $author = mysqli_fetch_assoc($author_result);
                         ?>
                         <div class="post__author-avatar">
-                            <!-- <img src="./images/<?= $author['avatar'] ?>"> -->
                             <a href="<?= ROOT_URL ?>profile.php?id=<?= $author['id'] ?>">
                                 <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['firstname'] ?>'s Avatar">
                             </a>
@@ -61,9 +59,13 @@ $posts = mysqli_query($connection, $query);
                         <div class="post__author-info">
                             <h5>
                                 By:
-                                <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                <?php if (isset($_SESSION['user-id'])) : ?>
+                                    <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                        <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                    </a>
+                                <?php else : ?>
                                     <?= "{$author['firstname']} {$author['lastname']}" ?>
-                                </a>
+                                <?php endif ?>
                                 <?php if ($author['is_admin'] == 1) : ?>
                                     <b class="admin_tag">Admin</b>
                                 <?php endif ?>

@@ -32,10 +32,12 @@ if (isset($_GET['id'])) {
                 <?php endwhile ?>
             </select>
             <textarea rows="10" name="body" placeholder="Body"><?= $post['body'] ?></textarea>
-            <div class="form__control inline">
-                <input type="checkbox" name="is_featured" id="is_featured" value="1" checked>
-                <label for="is_featured">Featured</label>
-            </div>
+            <?php if ($user['is_admin'] == 1) : ?>
+                <div class="form__control inline">
+                    <input type="checkbox" name="is_featured" id="is_featured" value="1" checked>
+                    <label for="is_featured">Featured</label>
+                </div>
+            <?php endif ?>
             <div class="form__control">
                 <label for="thumbnail">Change Thumbnail</label>
                 <input type="file" name="thumbnail" id="thumbnail">

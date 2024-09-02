@@ -8,7 +8,7 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($connection, $query);
     $post = mysqli_fetch_assoc($result);
 } else {
-    header('location: ' . ROOT_URL . 'blog.php');   // fix the url to redirect to post
+    header('location: ' . ROOT_URL . 'blog.php');
     die();
 }
 
@@ -51,10 +51,14 @@ $fetch_comment_result = mysqli_query($connection, $fetch_comment_query);
             <div class="post__author-info">
                 <h5>
                     By:
-                    <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                    <?php if (isset($_SESSION['user-id'])) : ?>
+                        <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                            <?= "{$author['firstname']} {$author['lastname']}" ?>
+                        </a>
+                    <?php else : ?>
                         <?= "{$author['firstname']} {$author['lastname']}" ?>
-                    </a>
-                    <?php if ($user['is_admin'] == 1) : ?>
+                    <?php endif ?>
+                    <?php if ($author['is_admin'] == 1) : ?>
                             <b class="admin_tag">Admin</b>
                     <?php endif ?>
                 </h5>

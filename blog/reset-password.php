@@ -16,11 +16,15 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if ($user === null) {
-    die("token not found");
+    $_SESSION['token-not-found'] = "The password reset link is no longer valid. Please request a new reset link.";
+    header("location: " . ROOT_URL . "blank-page-message.php");
+    die();
 }
 
 if (strtotime($user['reset_token_expires_at']) <= time()) {
-    die("token has expired");
+    $_SESSION['token-expired'] = "The password reset link has expired. Please request a new link.";
+    header("location: " . ROOT_URL . "blank-page-message.php");
+    die();
 }
 ?>
 

@@ -51,9 +51,13 @@ $posts = mysqli_query($connection, $query);
                     <div class="post__author-info">
                         <h5>
                             By:
-                            <a href="<?= ROOT_URL ?>profile.php?id=<?= $featured['author_id'] ?>">
+                            <?php if (isset($_SESSION['user-id'])) : ?>
+                                <a href="<?= ROOT_URL ?>profile.php?id=<?= $featured['author_id'] ?>">
+                                    <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                </a>
+                            <?php else : ?>
                                 <?= "{$author['firstname']} {$author['lastname']}" ?>
-                            </a>
+                            <?php endif ?>
                             <?php if ($author['is_admin'] == 1) : ?>
                                 <b class="admin_tag">Admin</b>
                             <?php endif ?>
@@ -82,11 +86,11 @@ $posts = mysqli_query($connection, $query);
                 </div>
                 <div class="post__info">
                     <?php
-                    // fetch category from categories table using category_id of post
-                    $category_id = $post['category_id'];
-                    $category_query = "SELECT * FROM categories WHERE id=$category_id";
-                    $category_result = mysqli_query($connection, $category_query);
-                    $category = mysqli_fetch_assoc($category_result);
+                        // fetch category from categories table using category_id of post
+                        $category_id = $post['category_id'];
+                        $category_query = "SELECT * FROM categories WHERE id=$category_id";
+                        $category_result = mysqli_query($connection, $category_query);
+                        $category = mysqli_fetch_assoc($category_result);
                     ?>
                     <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
                     <h3 class="post__title">
@@ -104,7 +108,6 @@ $posts = mysqli_query($connection, $query);
                         $author = mysqli_fetch_assoc($author_result);
                         ?>
                         <div class="post__author-avatar">
-                            <!-- <img src="./images/<?= $author['avatar'] ?>"> -->
                             <a href="<?= ROOT_URL ?>profile.php?id=<?= $author['id'] ?>">
                                 <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['firstname'] ?>'s Avatar">
                             </a>
@@ -112,9 +115,13 @@ $posts = mysqli_query($connection, $query);
                         <div class="post__author-info">
                             <h5>
                                 By:
-                                <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                <?php if (isset($_SESSION['user-id'])) : ?>
+                                    <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
+                                        <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                    </a>
+                                <?php else : ?>
                                     <?= "{$author['firstname']} {$author['lastname']}" ?>
-                                </a>
+                                <?php endif ?>
                                 <?php if ($author['is_admin'] == 1) : ?>
                                     <b class="admin_tag">Admin</b>
                                 <?php endif ?>

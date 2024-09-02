@@ -37,7 +37,8 @@ if ($email) {
 
             try{
                 $mail->send();
-                header("location: " . ROOT_URL . "email-send-message.php");
+                $_SESSION['email-sent'] = "Message sent, please check your email inbox.";
+                header("location: " . ROOT_URL . "blank-page-message.php");
                 die();
             } catch (Exception $e) {
                 echo '<script>

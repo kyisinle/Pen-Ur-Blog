@@ -10,7 +10,7 @@ $user_result = mysqli_query($connection, $user_query);
 $user = mysqli_fetch_assoc($user_result);
 
 // fetch all posts from posts table for the selected user
-$posts_query = "SELECT * FROM posts JOIN users ON posts.author_id = users.id WHERE users.id = $user_id ORDER BY posts.date_time DESC";
+$posts_query = "SELECT posts.*, posts.id AS post_id, users.* FROM posts JOIN users ON posts.author_id = users.id WHERE users.id = $user_id ORDER BY posts.date_time DESC";
 $posts = mysqli_query($connection, $posts_query);
 $posts_count = mysqli_num_rows($posts);
 
@@ -25,10 +25,11 @@ $is_logged_in = isset($_SESSION['user-id']);
                 <img src="<?= ROOT_URL . 'images/' . $user['avatar'] ?>" class="profile-pic">
                 <div class="profile-details">
                     <h2>
-                        <?=  $user['username'] ?>
+                        <?=  $user['firstname'] . " " . $user['lastname'] ?>
                         <?php if ($user['is_admin'] == 1) : ?>
                             <b class="Admintag">Admin</b>
                         <?php endif ?>
+                        <span> <?= "(" . $user['username'] . ")" ?> </span>
                     </h2>
                     <?php if (isset($user['bio'])) : ?>
                         <p> <?= $user['bio'] ?> </p>
@@ -68,7 +69,9 @@ $is_logged_in = isset($_SESSION['user-id']);
                                     $category = mysqli_fetch_assoc($category_result);
                                 ?>
                                 <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $post['category_id'] ?>" class="category__button"><?= $category['title'] ?></a>
-                                <h3 class="post__title"><a href="<?= ROOT_URL ?>post.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a></h3>
+                                <h3 class="post__title">
+                                    <a href="<?= ROOT_URL ?>post.php?id=<?= $post['post_id'] ?>"><?= $post['title'] ?></a>
+                                </h3>
                                 <p class="post__body">
                                     <?= substr($post['body'], 0, 300) ?>...
                                 </p>

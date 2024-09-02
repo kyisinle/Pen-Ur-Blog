@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    // redirect back to add-user pag eif there was any problem
+    // redirect back to add-user page if there was any problem
     if (isset($_SESSION['add-user'])) {
         // pass form data back to sigup page
         $_SESSION['add-user-data'] = $_POST;
@@ -76,14 +76,14 @@ if (isset($_POST['submit'])) {
         $insert_user_result = mysqli_query($connection, $insert_user_query);
 
         if (!mysqli_errno($connection)) {
-            // redirect to login page with success message
+            // redirect to index page with success message
             $_SESSION['add-user-success'] = "New user $firstname $lastname added successfully.";
             header('location: ' . ROOT_URL . 'admin/manage-users.php');
             die();
         }
     }
 } else {
-    // if button wasn't clicked, bounce back to signup page
+    // if button wasn't clicked, bounce back to add user page
     header('location: ' . ROOT_URL . 'admin/add-user.php');
     die();
 }

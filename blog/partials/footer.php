@@ -1,3 +1,9 @@
+<?php
+// Fetch 5 random categories
+$category_query = "SELECT * FROM categories ORDER BY RAND() LIMIT 5";
+$category_result = mysqli_query($connection, $category_query);
+?>
+
 <footer>
         <div class="footer__socials">
             <a href="https://youtube.com/egatortutorials" target="_blank"><i class="uil uil-youtube"></i></a>
@@ -10,43 +16,24 @@
             <article>
                 <h4>Categories</h4>
                 <ul>
-                    <li><a href="">Art</a></li>
-                    <li><a href="">Wild Life</a></li>
-                    <li><a href="">Travel</a></li>
-                    <li><a href="">Music</a></li>
-                    <li><a href="">Science & Technology</a></li>
-                    <li><a href="">Food</a></li>
-                </ul>
-            </article>
-            </article>
-            <article>
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="">Online Support</a></li>
-                    <li><a href="">Call Numbers</a></li>
-                    <li><a href="">Email</a></li>
-                    <li><a href="">Social Support</a></li>
-                    <li><a href="">Location</a></li>
+                    <?php while ($category = mysqli_fetch_assoc($category_result)): ?>
+                        <li><a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>"><?= htmlspecialchars($category['title']); ?></a></li>
+                    <?php endwhile ?>
                 </ul>
             </article>
             <article>
-                <h4>Blog</h4>
+                <h4>Learn More</h4>
                 <ul>
-                    <li><a href="">Safety</a></li>
-                    <li><a href="">Repair</a></li>
-                    <li><a href="">Recent</a></li>
-                    <li><a href="">Popular</a></li>
-                    <li><a href="">Categories</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                 </ul>
             </article>
             <article>
                 <h4>Permalinks</h4>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="blog.php">Blog</a></li>
+                    <li><a href="shop.php">Shop</a></li>
                 </ul>
             </article>
         </div>
