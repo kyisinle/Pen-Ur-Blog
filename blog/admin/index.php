@@ -3,8 +3,14 @@ include 'partials/header.php';
 
 // fetch current user's posts from database
 $current_user_id = $_SESSION['user-id'];
-$query = "SELECT id, title, category_id FROM posts WHERE author_id=$current_user_id ORDER BY id DESC";
-$posts = mysqli_query($connection, $query);
+
+if ($user['is_admin'] == 1) {
+    $query = "SELECT id, title, category_id FROM posts ORDER BY id DESC";
+    $posts = mysqli_query($connection, $query);
+} else {
+    $query = "SELECT id, title, category_id FROM posts WHERE author_id=$current_user_id ORDER BY id DESC";
+    $posts = mysqli_query($connection, $query);
+}
 ?>
 
 
