@@ -1,6 +1,9 @@
 <?php
 require 'config/database.php';
 
+// Set the default time zone
+date_default_timezone_set('Asia/Yangon');
+
 $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
 if ($email) {
