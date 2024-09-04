@@ -11,14 +11,18 @@ $page = max($page, 1); // Ensure the page number is at least 1
 // Calculate the offset for the SQL query
 $offset = ($page - 1) * $items_per_page;
 
-// Fetch the total number of items from the database
-$total_items_query = "SELECT COUNT(*) AS total FROM items";
+// Delete items with zero stock
+$delete_query = "DELETE FROM items WHERE stock = 0";
+mysqli_query($connection, $delete_query);
+
+// Fetch the total number of items from the database (excluding those with zero stock)
+$total_items_query = "SELECT COUNT(*) AS total FROM items WHERE stock > 0";
 $total_items_result = mysqli_query($connection, $total_items_query);
 $total_items_row = mysqli_fetch_assoc($total_items_result);
 $total_items = $total_items_row['total'];
 
-// Fetch items for the current page from the database
-$query = "SELECT * FROM items LIMIT $items_per_page OFFSET $offset";
+// Fetch items for the current page from the database (excluding those with zero stock)
+$query = "SELECT * FROM items WHERE stock > 0 LIMIT $items_per_page OFFSET $offset";
 $items = mysqli_query($connection, $query);
 
 // Calculate the total number of pages
@@ -41,7 +45,6 @@ function truncate_description($text, $max_lines = 4)
     }
     return $truncated . '...';
 }
-
 ?>
 
 <section class="dashboard">
@@ -136,6 +139,7 @@ function truncate_description($text, $max_lines = 4)
                     <tr>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Stock</th>
                         <th>Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -146,6 +150,7 @@ function truncate_description($text, $max_lines = 4)
                         <tr>
                             <td><?= htmlspecialchars($item['title']) ?></td>
                             <td><?= htmlspecialchars(truncate_description($item['description'], 4)) ?></td>
+                            <td><?= htmlspecialchars($item['stock']) ?></td>
                             <td><?= htmlspecialchars($item['price']) ?></td>
                             <td><a href="<?= ROOT_URL ?>admin/edit-item.php?id=<?= $item['id'] ?>" class="btn sm">Edit</a></td>
                             <td><a href="<?= ROOT_URL ?>admin/delete-item.php?id=<?= $item['id'] ?>" class="btn sm danger">Delete</a></td>
