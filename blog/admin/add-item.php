@@ -64,6 +64,7 @@ include 'partials/header.php';
             <form action="<?= ROOT_URL ?>admin/add-item-logic.php" enctype="multipart/form-data" method="POST">
                 <input type="text" name="title" placeholder="Item name" value="<?= $_SESSION['add-item-data']['title'] ?? '' ?>">
                 <textarea rows="10" name="description" placeholder="About your item..."><?= $_SESSION['add-item-data']['description'] ?? '' ?></textarea>
+                <input type="text" name="stock" placeholder="Stock" value="<?= $_SESSION['add-item-data']['stock'] ?? '' ?>">
                 <input type="text" name="price" placeholder="Price" value="<?= $_SESSION['add-item-data']['price'] ?? '' ?>">
                 <div class="form__control">
                     <label for="thumbnail">Add photo</label>
