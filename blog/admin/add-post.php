@@ -30,37 +30,37 @@ unset($_SESSION['add-post-data']);
                     <h5>Manage Post</h5>
                     </a>
                 </li>
-                <?php if (isset($_SESSION['user_is_admin'])) : ?>
-                <li>
-                    <a href="add-item.php"><i class="uil uil-create-dashboard"></i>
-                    <h5>Add Item</h5>
-                    </a>
-                </li>
-                <li>
-                    <a href="manage-item.php"><i class="uil uil-box"></i>
-                    <h5>Manage Item</h5>
-                    </a>
-                </li>
-                <li>
-                    <a href="add-user.php"><i class="uil uil-user-plus"></i>
-                    <h5>Add Admin</h5>
-                    </a>
-                </li>
-                <li>
-                    <a href="manage-users.php"><i class="uil uil-users-alt"></i>
-                    <h5>Manage User</h5>
-                    </a>
-                </li>
                 <li>
                     <a href="add-category.php"><i class="uil uil-edit"></i>
                     <h5>Add Category</h5>
                     </a>
                 </li>
-                <li>
-                    <a href="manage-categories.php"><i class="uil uil-list-ul"></i>
-                    <h5>Manage Category</h5>
-                    </a>
-                </li>
+                <?php if (isset($_SESSION['user_is_admin'])) : ?>
+                    <li>
+                        <a href="manage-categories.php"><i class="uil uil-list-ul"></i>
+                        <h5>Manage Category</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-item.php"><i class="uil uil-create-dashboard"></i>
+                        <h5>Add Item</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-item.php"><i class="uil uil-box"></i>
+                        <h5>Manage Item</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="add-user.php"><i class="uil uil-user-plus"></i>
+                        <h5>Add Admin</h5>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-users.php"><i class="uil uil-users-alt"></i>
+                        <h5>Manage User</h5>
+                        </a>
+                    </li>
                 <?php endif ?>
             </ul>
         </aside>
@@ -82,6 +82,7 @@ unset($_SESSION['add-post-data']);
                         <option value="<?= $category['id'] ?>"><?= $category['title'] ?></option>
                     <?php endwhile ?>
                 </select>
+                <small class="post__add-category">Can't find the right category? <a href="add-category.php">Add more.</a></small>
                 <textarea rows="10" name="body" placeholder="Body"><?= $body ?></textarea>
                 <?php if (isset($_SESSION['user_is_admin'])) : ?>
                     <div class="form__control inline">

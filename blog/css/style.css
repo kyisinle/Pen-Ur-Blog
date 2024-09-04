@@ -612,17 +612,46 @@ select {
 }
 
 .form__section small {
+    font-size: 10pt;
     margin-top: 1rem;
     display: block;
 }
 
 .form__section small a{
+    font-weight: bolder;
+    color: var(--color-primary);
+}
+
+.post__add-category {
+    font-size: 10pt;
+    margin-top: -0.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.post__add-category a {
+    font-weight: bolder;
     color: var(--color-primary);
 }
 
 .fgt_password {
     margin-top: -1.5em;
     float: right;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__tag {
+    font-size: 13px;
+    padding: 8px 10px;
+}
+
+.filter__tag option {
+    font-size: 13px;
+    padding: 8px 10px;
 }
 
 /* ======= Dashboard */

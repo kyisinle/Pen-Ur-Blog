@@ -107,7 +107,13 @@ function truncate_description($text, $max_lines = 4)
                 <li><a href="index.php"><i class="uil uil-postcard"></i>
                         <h5>Manage Post</h5>
                     </a></li>
+                <li><a href="add-category.php"><i class="uil uil-edit"></i>
+                        <h5>Add Category</h5>
+                    </a></li>
                 <?php if (isset($_SESSION['user_is_admin'])) : ?>
+                    <li><a href="manage-categories.php"><i class="uil uil-list-ul"></i>
+                            <h5>Manage Category</h5>
+                        </a></li>
                     <li><a href="add-item.php"><i class="uil uil-create-dashboard"></i>
                             <h5>Add Item</h5>
                         </a></li>
@@ -119,12 +125,6 @@ function truncate_description($text, $max_lines = 4)
                         </a></li>
                     <li><a href="manage-users.php"><i class="uil uil-users-alt"></i>
                             <h5>Manage User</h5>
-                        </a></li>
-                    <li><a href="add-category.php"><i class="uil uil-edit"></i>
-                            <h5>Add Category</h5>
-                        </a></li>
-                    <li><a href="manage-categories.php"><i class="uil uil-list-ul"></i>
-                            <h5>Manage Category</h5>
                         </a></li>
                 <?php endif; ?>
             </ul>
