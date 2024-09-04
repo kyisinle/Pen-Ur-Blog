@@ -35,106 +35,118 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $insert_payment_result = mysqli_query($connection, $insert_payment_query);
 
     if (!mysqli_errno($connection)) {
-        // If the payment is processed successfully, send an email
 
-        $mail = new PHPMailer(true);
+        // Decrement stock by 1
+        $update_stock_query = "UPDATE items SET stock = stock - 1 WHERE id = '$item_id'";
+        $update_stock_result = mysqli_query($connection, $update_stock_query);
 
-        try {
-            // Server settings
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // Replace with your SMTP server
-            $mail->SMTPAuth = true;
-            $mail->Username = 'penurblog.pub@gmail.com'; // Replace with your SMTP username
-            $mail->Password = 'msbp yqme esdy vuqj'; // Replace with your SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+        if (!mysqli_errno($connection)) {
+            // If the payment is processed successfully, send an email
 
-            // Recipients
-            $mail->setFrom('penurblog.pub@gmail.com', 'Name'); // Replace with your email
-            $mail->addAddress('penurblog@gmail.com', 'Admin'); // Replace with admin's email
+            $mail = new PHPMailer(true);
 
-            // Content
-            $mail->isHTML(true);
-            $mail->Subject = 'New Payment Received';
+            try {
+                // Server settings
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com'; // Replace with your SMTP server
+                $mail->SMTPAuth = true;
+                $mail->Username = 'penurblog.pub@gmail.com'; // Replace with your SMTP username
+                $mail->Password = 'msbp yqme esdy vuqj'; // Replace with your SMTP password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
 
-            // HTML content for the email body
-            $mail->Body = "
-<html>
-<head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            background-color: #007BFF;
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            text-align: center;
-        }
+                // Recipients
+                $mail->setFrom('penurblog.pub@gmail.com', 'Name'); // Replace with your email
+                $mail->addAddress('penurblog@gmail.com', 'Admin'); // Replace with admin's email
+
+                // Content
+                $mail->isHTML(true);
+                $mail->Subject = 'New Payment Received';
+
+                // HTML content for the email body
+                $mail->Body = "
+                <html>
+                <head>
+                <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    }
+                    .container {
+                        width: 80%;
+                        margin: 20px auto;
+                        background-color: #fff;
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                        }
+                        .header {
+                            background-color: #007BFF;
+                            color: #fff;
+                            padding: 10px;
+                            border-radius: 10px 10px 0 0;
+                            text-align: center;
+                            }
         .content {
             padding: 20px;
-        }
-        .content h2 {
-            margin-top: 0;
-        }
-        .content p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        .footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 12px;
-            color: #777;
-        }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='header'>
-            <h1>Payment Confirmation</h1>
-        </div>
-        <div class='content'>
-            <h2>Payment Details</h2>
-            <p><strong>Full Name:</strong> $fullname</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Phone:</strong> $phone</p>
-            <p><strong>Address:</strong> $address</p>
-            <p><strong>City:</strong> $city</p>
-            <p><strong>State:</strong> $state</p>
-            <p><strong>Item:</strong> $title</p>
-        </div>
-        <div class='footer'>
-            <p>This is an automated message. Please do not reply.</p>
-        </div>
-    </div>
-</body>
-</html>
-";
+            }
+            .content h2 {
+                margin-top: 0;
+                }
+                .content p {
+                    margin: 5px 0;
+                    font-size: 14px;
+                    }
+                    .footer {
+                        text-align: center;
+                        padding: 10px;
+                        font-size: 12px;
+                        color: #777;
+                        }
+                        </style>
+                        </head>
+                        <body>
+                        <div class='container'>
+                        <div class='header'>
+                        <h1>Payment Confirmation</h1>
+                        </div>
+                        <div class='content'>
+                        <h2>Payment Details</h2>
+                        <p><strong>Full Name:</strong> $fullname</p>
+                        <p><strong>Email:</strong> $email</p>
+                        <p><strong>Phone:</strong> $phone</p>
+                        <p><strong>Address:</strong> $address</p>
+                        <p><strong>City:</strong> $city</p>
+                        <p><strong>State:</strong> $state</p>
+                        <p><strong>Item:</strong> $title</p>
+                        </div>
+                        <div class='footer'>
+                        <p>This is an automated message. Please do not reply.</p>
+                        </div>
+                        </div>
+                        </body>
+                        </html>
+                        ";
 
 
-            $mail->send();
+                $mail->send();
 
-            // Redirect to success page with success message
-            $_SESSION['add-payment-success'] = "Payment processed successfully.";
-            header('location: ' . ROOT_URL . 'payment.php');
-            die();
-        } catch (Exception $e) {
-            // Handle email sending failure
-            $_SESSION['add-payment'] = "Payment processed, but failed to send email. Mailer Error: {$mail->ErrorInfo}";
+                // Redirect to success page with success message
+                $_SESSION['add-payment-success'] = "Payment processed successfully.";
+                header('location: ' . ROOT_URL . 'payment.php');
+                die();
+            } catch (Exception $e) {
+                // Handle email sending failure
+                $_SESSION['add-payment'] = "Payment processed, but failed to send email. Mailer Error: {$mail->ErrorInfo}";
+                header('location: ' . ROOT_URL . 'payment.php?user_id=' . $user_id . '&id=' . $item_id);
+                die();
+            }
+        } else {
+            // Handle query failure
+            $_SESSION['add-payment'] = "Failed to process payment. Please try again.";
             header('location: ' . ROOT_URL . 'payment.php?user_id=' . $user_id . '&id=' . $item_id);
             die();
         }
