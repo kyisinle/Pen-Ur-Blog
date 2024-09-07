@@ -1,10 +1,11 @@
 <?php
 require 'config/constants.php';
 
-if (isset($_GET['user_id']) && isset($_GET['id']) && isset($_GET['title'])) {
+if (isset($_GET['user_id']) && isset($_GET['id']) && isset($_GET['title']) && isset($_GET['price'])) {
     $user_id = filter_var($_GET['user_id'], FILTER_SANITIZE_NUMBER_INT);
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
     $title = filter_var($_GET['title'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $price = filter_var($_GET['price'], FILTER_SANITIZE_NUMBER_INT);
 } else {
     // If user_id or item_id is not provided, redirect back or show an error
     header('location: ' . ROOT_URL . 'shop.php');
@@ -36,6 +37,7 @@ if (isset($_GET['user_id']) && isset($_GET['id']) && isset($_GET['title'])) {
                     <input type="hidden" name="user_id" value="<?= htmlspecialchars($user_id) ?>">
                     <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
                     <input type="hidden" name="title" value="<?= htmlspecialchars($title) ?>">
+                    <input type="hidden" name="price" value="<?= htmlspecialchars($price) ?>">
                     <div class="input-box">
                         <span>Full Name :</span>
                         <input type="text" name="fullname" placeholder="Your Name Here" value="<?= $_SESSION['add-payment-data']['fullname'] ?? '' ?>">
