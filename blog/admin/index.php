@@ -111,13 +111,15 @@ $posts = mysqli_query($connection, $query);
         <main>
             <div class="filters">
                 <h2>Manage Post</h2>
-                <!-- filter posts -->
-                <form method="GET" action="">
-                    <select name="filter" onchange="this.form.submit()" class="filter__tag">
-                        <option value="my_posts" <?= isset($_GET['filter']) && $_GET['filter'] === 'my_posts' ? 'selected' : '' ?>>My Posts</option>
-                        <option value="others_posts" <?= isset($_GET['filter']) && $_GET['filter'] === 'others_posts' ? 'selected' : '' ?>>Others' Posts</option>
-                    </select>
-                </form>
+                <?php if ($user['is_admin'] == 1) : ?>
+                    <!-- filter posts -->
+                    <form method="GET" action="">
+                        <select name="filter" onchange="this.form.submit()" class="filter__tag">
+                            <option value="my_posts" <?= isset($_GET['filter']) && $_GET['filter'] === 'my_posts' ? 'selected' : '' ?>>My Posts</option>
+                            <option value="others_posts" <?= isset($_GET['filter']) && $_GET['filter'] === 'others_posts' ? 'selected' : '' ?>>Others' Posts</option>
+                        </select>
+                    </form>
+                <?php endif ?>
             </div>
             <?php if (mysqli_num_rows($posts) > 0) : ?>
                 <table>
