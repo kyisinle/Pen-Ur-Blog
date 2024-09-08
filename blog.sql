@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2024 at 04:25 PM
+-- Generation Time: Sep 08, 2024 at 12:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,7 +70,7 @@ CREATE TABLE `payments` (
   `id` int(11) NOT NULL,
   `item_id` int(11) DEFAULT NULL,
   `user_id` int(11) UNSIGNED DEFAULT NULL,
-  `fullname` int(255) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `address` text DEFAULT NULL,
@@ -103,8 +103,6 @@ CREATE TABLE `posts` (
 
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -114,13 +112,6 @@ CREATE TABLE `users` (
   `reset_token_hash` varchar(64) DEFAULT NULL,
   `reset_token_expires_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `password`, `avatar`, `is_admin`, `bio`, `reset_token_hash`, `reset_token_expires_at`) VALUES
-(7, 'Eaint', 'Pyae Phyo', 'Luna', 'eaintpyaephyo.epp@gmail.com', '$2y$10$fc0E.kz6u2je.CCVjP4k0uB/EaUCe1H1hcf2csGsbCgougBSuqkk2', '1724569424tensura.jpg', 1, 'Hi! I am a programmer', 'd816d71d277a81971853f46f79d8771eb3a4273e9cd33d03f34adeb2eb7231f0', '2024-08-31 09:41:45');
 
 --
 -- Indexes for dumped tables
@@ -137,8 +128,8 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`cmd_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `post_id` (`post_id`);
+  ADD KEY `post_id` (`post_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `items`
@@ -159,8 +150,8 @@ ALTER TABLE `payments`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_blog_category` (`category_id`),
-  ADD KEY `FK_blog_author` (`author_id`);
+  ADD KEY `FK_blog_author` (`author_id`),
+  ADD KEY `posts_ibfk_1` (`category_id`);
 
 --
 -- Indexes for table `users`
@@ -177,19 +168,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `cmd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `cmd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -201,13 +192,13 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -217,7 +208,8 @@ ALTER TABLE `users`
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `payments`
@@ -230,7 +222,8 @@ ALTER TABLE `payments`
 -- Constraints for table `posts`
 --
 ALTER TABLE `posts`
-  ADD CONSTRAINT `FK_blog_author` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_blog_author` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
