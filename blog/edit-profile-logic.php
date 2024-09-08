@@ -4,19 +4,13 @@ require 'config/database.php';
 // get profile data if edit profile button was clicked
 if (isset($_POST['submit'])) {
     $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
-    $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $bio = filter_var($_POST['bio'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $avatar = $_FILES['avatar'];
 
     // validate input values
-    if (!$firstname) {
-        $_SESSION['edit-profile'] = "Please enter your First Name";
-    } elseif (!$lastname) {
-        $_SESSION['edit-profile'] = "Please enter your Last Name";
-    } elseif (!$username) {
+    if (!$username) {
         $_SESSION['edit-profile'] = "Please enter your Username";
     } elseif (!$email) {
         $_SESSION['edit-profile'] = "Please enter your Email";
@@ -73,11 +67,11 @@ if (isset($_POST['submit'])) {
     } else {
         if (isset($avatar_name)) {
             // Update profile information with avatar
-            $update_query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', email='$email', bio='$bio', avatar='$avatar_name' WHERE id=$id";
+            $update_query = "UPDATE users SET username='$username', email='$email', bio='$bio', avatar='$avatar_name' WHERE id=$id";
             mysqli_query($connection, $update_query);
         }else {
             // Update profile information without avatar
-            $update_profile_query = "UPDATE users SET firstname='$firstname', lastname='$lastname', username='$username', email='$email', bio='$bio' WHERE id=$id";
+            $update_profile_query = "UPDATE users SET username='$username', email='$email', bio='$bio' WHERE id=$id";
             mysqli_query($connection, $update_profile_query);
         }
 

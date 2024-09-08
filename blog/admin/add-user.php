@@ -2,8 +2,6 @@
 include 'partials/header.php';
 
 // get back form data if there was an error
-$firstname = $_SESSION['add-user-data']['firstname'] ?? null;
-$lastname = $_SESSION['add-user-data']['lastname'] ?? null;
 $username = $_SESSION['add-user-data']['username'] ?? null;
 $email = $_SESSION['add-user-data']['email'] ?? null;
 $createpassword = $_SESSION['add-user-data']['createpassword'] ?? null;
@@ -76,8 +74,6 @@ unset($_SESSION['add-user-data']);
                 </div>
             <?php endif ?>
             <form action="<?= ROOT_URL ?>admin/add-user-logic.php" enctype="multipart/form-data" method="POST">
-                <input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First Name">
-                <input type="text" name="lastname" value="<?= $lastname ?>" placeholder="Last Name">
                 <input type="text" name="username" value="<?= $username ?>" placeholder="Username">
                 <input type="email" name="email"  value="<?= $email ?>" placeholder="Email">
                 <input type="password" name="createpassword" value="<?= $createpassword ?>" placeholder="Create Password">

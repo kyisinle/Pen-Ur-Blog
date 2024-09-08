@@ -18,11 +18,10 @@ if (isset($_GET['id'])) {
         <h2>Edit User</h2>
         <form action="<?= ROOT_URL ?>admin/edit-user-logic.php" method="POST">
             <input type="hidden" value="<?= $user['id'] ?>" name="id">
-            <input type="text" value="<?= $user['firstname'] ?>" name="firstname" placeholder="First Name">
-            <input type="text" value="<?= $user['lastname'] ?>" name="lastname" placeholder="Last Name">
+            <input type="text" value="<?= $user['username'] ?>" name="username" placeholder="Username">
             <select name="userrole">
-                <option value="0">Author</option>
-                <option value="1">Admin</option>
+                <option value="0" <?php if ($user['is_admin'] == 0) echo 'selected'; ?>>User</option>
+                <option value="1" <?php if ($user['is_admin'] == 1) echo 'selected'; ?>>Admin</option>
             </select>
             <button type="submit" name="submit" class="btn">Update User</button>
         </form>

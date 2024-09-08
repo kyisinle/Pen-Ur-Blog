@@ -11,7 +11,7 @@ if ($user['is_admin'] == 1) {
     if ($filter === 'my_posts') {
         $query = "SELECT id, title, category_id, author_id FROM posts WHERE author_id=$current_user_id ORDER BY id DESC";
     } elseif ($filter === 'others_posts') {
-        $query = "SELECT posts.id, posts.title, posts.category_id, posts.author_id, users.firstname, users.lastname FROM posts JOIN users ON posts.author_id = users.id WHERE posts.author_id != $current_user_id ORDER BY posts.id DESC";
+        $query = "SELECT posts.id, posts.title, posts.category_id, posts.author_id, users.username FROM posts JOIN users ON posts.author_id = users.id WHERE posts.author_id != $current_user_id ORDER BY posts.id DESC";
     }
 } else {
     $query = "SELECT id, title, category_id, author_id FROM posts WHERE author_id=$current_user_id ORDER BY id DESC";
@@ -150,7 +150,7 @@ $posts = mysqli_query($connection, $query);
                                 <?php if ($filter == 'my_posts') : ?>
                                     <td><a href="<?= ROOT_URL ?>admin/edit-post.php?id=<?= $post['id'] ?>" class="btn sm">Edit</a></td>
                                 <?php else : ?>
-                                    <td><?= $post['firstname'] . " " . $post['lastname'] ?></td>
+                                    <td><?= $post['username'] ?></td>
                                 <?php endif ?>
                                 <td><a href="<?= ROOT_URL ?>admin/delete-post.php?id=<?= $post['id'] ?>" class="btn sm danger">Delete</a></td>
                             </tr>

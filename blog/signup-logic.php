@@ -3,8 +3,6 @@ require 'config/database.php';
 
 // get signup form data if signup button was clicked
 if (isset($_POST['submit'])) {
-    $firstname = filter_var($_POST['firstname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $lastname = filter_var($_POST['lastname'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $username = filter_var($_POST['username'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     $createpassword = filter_var($_POST['createpassword'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -12,11 +10,7 @@ if (isset($_POST['submit'])) {
     $avatar = $_FILES['avatar'];
 
     // validate input values
-    if (!$firstname) {
-        $_SESSION['signup'] = "Please enter your First Name";
-    } elseif (!$lastname) {
-        $_SESSION['signup'] = "Please enter your Last Name";
-    } elseif (!$username) {
+    if (!$username) {
         $_SESSION['signup'] = "Please enter your Username";
     } elseif (!$email) {
         $_SESSION['signup'] = "Please enter your Email";
@@ -72,7 +66,7 @@ if (isset($_POST['submit'])) {
         die();
     } else {
         // insert new user into user table 
-        $insert_user_query = "INSERT INTO users SET firstname='$firstname', lastname='$lastname', username='$username', email='$email', password='$hashed_password', avatar='$avatar_name', is_admin=0";
+        $insert_user_query = "INSERT INTO users SET username='$username', email='$email', password='$hashed_password', avatar='$avatar_name', is_admin=0";
         $insert_user_result = mysqli_query($connection, $insert_user_query);
 
         if (!mysqli_errno($connection)) {

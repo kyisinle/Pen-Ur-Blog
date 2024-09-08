@@ -45,14 +45,14 @@ $posts = mysqli_query($connection, $query);
                     ?>
                     <div class="post__author-avatar">
                         <a href="<?= ROOT_URL ?>profile.php?id=<?= $author['id'] ?>">
-                            <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['firstname'] ?>'s Avatar">
+                            <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['username'] ?>'s Avatar">
                         </a>
                     </div>
                     <div class="post__author-info">
                         <h5>
                             By:
                             <a href="<?= ROOT_URL ?>profile.php?id=<?= $featured['author_id'] ?>">
-                                <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                <?= "{$author['username']}" ?>
                              </a>
                             <?php if ($author['is_admin'] == 1) : ?>
                                 <b class="admin_tag">Admin</b>
@@ -105,14 +105,14 @@ $posts = mysqli_query($connection, $query);
                         ?>
                         <div class="post__author-avatar">
                             <a href="<?= ROOT_URL ?>profile.php?id=<?= $author['id'] ?>">
-                                <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['firstname'] ?>'s Avatar">
+                                <img src="./images/<?= $author['avatar'] ?>" alt="<?= $author['username'] ?>'s Avatar">
                             </a>
                         </div>
                         <div class="post__author-info">
                             <h5>
                                 By:
                                 <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
-                                    <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                    <?= "{$author['username']}" ?>
                                 </a>
                                 <?php if ($author['is_admin'] == 1) : ?>
                                     <b class="admin_tag">Admin</b>

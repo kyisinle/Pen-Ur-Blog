@@ -54,7 +54,7 @@ $fetch_comment_result = mysqli_query($connection, $fetch_comment_query);
                 <h5>
                     By:
                     <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
-                        <?= "{$author['firstname']} {$author['lastname']}" ?>
+                        <?= "{$author['username']}" ?>
                     </a>
                     <?php if ($author['is_admin'] == 1) : ?>
                             <b class="admin_tag">Admin</b>

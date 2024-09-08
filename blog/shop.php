@@ -2,7 +2,7 @@
 include 'partials/header.php';
 
 // Fetch items from the database
-$query = "SELECT * FROM items WHERE stock > 0";
+$query = "SELECT * FROM items";
 $items = mysqli_query($connection, $query);
 ?>
 

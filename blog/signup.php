@@ -2,8 +2,6 @@
 require 'config/constants.php';
 
 // get back form data if there was a registration error
-$firstname = $_SESSION['signup-data']['firstname'] ?? null;
-$lastname = $_SESSION['signup-data']['lastname'] ?? null;
 $username = $_SESSION['signup-data']['username'] ?? null;
 $email = $_SESSION['signup-data']['email'] ?? null;
 $createpassword = $_SESSION['signup-data']['createpassword'] ?? null;
@@ -41,8 +39,6 @@ unset($_SESSION['signup-data']);
                     </div>
                 <?php endif ?>
                 <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
-                    <input type="text" name="firstname" value="<?= $firstname ?>" placeholder="First Name">
-                    <input type="text" name="lastname" value="<?= $lastname ?>" placeholder="Last Name">
                     <input type="text" name="username" value="<?= $username ?>" placeholder="Username">
                     <input type="email" name="email" value="<?= $email ?>" placeholder="Email">
                     <input type="password" name="createpassword" value="<?= $createpassword ?>" placeholder="Create Password">

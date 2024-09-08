@@ -59,10 +59,10 @@ if (isset($_GET['id'])) {
                                     By:
                                     <?php if (isset($_SESSION['user-id'])) : ?>
                                         <a href="<?= ROOT_URL ?>profile.php?id=<?= $post['author_id'] ?>">
-                                            <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                            <?= "{$author['username']}" ?>
                                         </a>
                                     <?php else : ?>
-                                        <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                        <?= "{$author['username']}" ?>
                                     <?php endif ?>
                                     <?php if ($author['is_admin'] == 1) : ?>
                                         <b class="admin_tag">Admin</b>

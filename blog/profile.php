@@ -24,11 +24,10 @@ $is_logged_in = isset($_SESSION['user-id']);
             <img src="<?= ROOT_URL . 'images/' . $user['avatar'] ?>" class="profile-pic">
             <div class="profile-details">
                 <h2>
-                    <?=  $user['firstname'] . " " . $user['lastname'] ?>
+                    <?= $user['username'] ?>
                     <?php if ($user['is_admin'] == 1) : ?>
                         <b class="Admintag">Admin</b>
                     <?php endif ?>
-                    <span> <?= "(" . $user['username'] . ")" ?> </span>
                 </h2>
                 <?php if (isset($user['bio'])) : ?>
                     <p> <?= $user['bio'] ?> </p>
@@ -86,7 +85,7 @@ $is_logged_in = isset($_SESSION['user-id']);
                                     </div>
                                     <div class="post__author-info">
                                         <h5>
-                                            By: <?= "{$author['firstname']} {$author['lastname']}" ?>
+                                            By: <?= "{$author['username']}" ?>
                                             <?php if ($user['is_admin'] == 1) : ?>
                                                 <b class="admin_tag">Admin</b>
                                             <?php endif ?>
