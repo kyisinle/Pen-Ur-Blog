@@ -54,6 +54,7 @@ if (isset($_POST['submit'])) {
                 } else {
                     $_SESSION['signup'] = "File should be png, jpg, or jpeg";
                 }
+                $_SESSION['user-id'] = $user_record['id'];
             }
         }
     }
@@ -70,6 +71,13 @@ if (isset($_POST['submit'])) {
         $insert_user_result = mysqli_query($connection, $insert_user_query);
 
         if (!mysqli_errno($connection)) {
+            // Get the ID of the newly created user
+            $new_user_id = mysqli_insert_id($connection);
+            
+            // Set the user ID in the session
+            $_SESSION['user-id'] = $new_user_id;
+        
+            // Redirect to the home page
             header('location: ' . ROOT_URL . 'index.php');
             die();
         } 
